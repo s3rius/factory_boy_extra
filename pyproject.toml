@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "factory_boy_extra"
+version = "0.1.3"
+description = ""
+readme = "README.md"
+authors = ["Pavel Kirilin <win10@list.ru>"]
+packages = [{ include = "factory_boy_extra" }]
+homepage = "https://github.com/s3rius/factory_boy_extra"
+repository = "https://github.com/s3rius/factory_boy_extra"
+keywords = ["ORM", "SQLAlchemy", "Tortoise-ORM", "Factory", "factory_boy"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Database",
+    "Environment :: Plugins",
+]
+
+[tool.poetry.dependencies]
+python = "^3.8.7"
+factory-boy = "^3.2.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+flake8 = "^3.9.2"
+wemake-python-styleguide = "^0.15.3"
+black = "^21.9b0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
