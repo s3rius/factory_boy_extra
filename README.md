@@ -42,6 +42,28 @@ async def test_factories():
     assert len(actual_models) == 10
 ```
 
+To prevent `RuntimeError: Task is attached to a different loop`
+
+```python
+@pytest.fixture
+def close_connections() -> Generator:
+
+    yield
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(connections.close_all())
+
+
+@pytest.mark.asyncio
+async def test_factories(close_connection):
+    # close opened connection to the db after the test case completes.
+    # Prevent `RuntimeError: Task is attached to a different loop`
+    _ = close_connections
+
+    targets = TargetModelFactory.create_batch(10)
+    actual_models = await TargetModel.all()
+    assert len(actual_models) == 10
+```
+
 ## AsyncSQLAlchemyModelFactory
 
 ### Usage
