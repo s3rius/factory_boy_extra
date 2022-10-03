@@ -17,6 +17,7 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.8.7"
 factory-boy = "^3.2.0"
+nest-asyncio = "^1.5.5"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
